@@ -2,14 +2,13 @@ package com.example.swd392.controller;
 
 import com.example.swd392.dto.ProductDTO;
 import com.example.swd392.dto.ProductUpdateDTO;
-import com.example.swd392.model.Product;
 import com.example.swd392.service.ProductService;
+import com.example.swd392.service.ProductServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/products")
