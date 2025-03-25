@@ -48,19 +48,12 @@ public class ProductServiceImp implements ProductService {
                 return (ProductDTO) ResponseEntity.badRequest();
             }
         }
-        Category category = categoryRepository.findByCategoryName(newProduct.getCategoryName())
-                .orElseGet(() -> {
-                    Category newCategory = new Category();
-                    newCategory.setCategoryName(newProduct.getCategoryName());
-                    return categoryRepository.save(newCategory);
-                });
+        Category category = categoryRepository.findById(newProduct.getCategoryId())
+                .orElseThrow(() -> new IllegalArgumentException("Category not found"));
 
-        Brand brand = brandRepository.findByBrandName(newProduct.getBrandName())
-                .orElseGet(() -> {
-                    Brand newBrand = new Brand();
-                    newBrand.setBrandName(newProduct.getBrandName());
-                    return brandRepository.save(newBrand);
-                });
+        // 🔍 Tìm brand theo ID thay vì name
+        Brand brand = brandRepository.findById(newProduct.getBrandId())
+                .orElseThrow(() -> new IllegalArgumentException("Brand not found"));
 
         Product product = new Product();
         product.setName(newProduct.getName());

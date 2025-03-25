@@ -11,6 +11,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/products")
+@CrossOrigin(origins = "*") // Cho phép tất cả các nguồn truy cập
+
 public class ProductController {
 
     private final ProductService productService;

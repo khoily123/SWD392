@@ -12,5 +12,7 @@ public class ProductUpdateDTO {
     private String brandName;
     private Integer stockQuantity;
     private String description;
+    private Integer categoryId;
+    private Integer brandId;
 }
 
